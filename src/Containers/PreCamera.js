@@ -75,7 +75,7 @@ class PreCamera extends Component {
                 </View>
             );
         } else if ( stage === 'camera' ) {
-            return (<SimpleCamera onCancel={this.onCancelCamera} onStop={this.onCancel} />);
+            return (<SimpleCamera onCancel={this.onCancelCamera} onStop={this.onCancel} StyledButton={FlexButton} />);
         } else if ( stage === 'SomeComponent' || stage === 'other' ) {
             return <SomeComponent onChoose={this.onChoose} resetKey={'IncludesCameraOption'} />;
         } else {
