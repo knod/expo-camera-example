@@ -6,6 +6,7 @@ import { SimpleCamera } from '@knod/expo-simple-camera';
 
 // PRESENTATIONAL
 import { FlexButton } from '@knod/flex-button';
+import { CameraOverlay } from '../Components/CameraOverlay.js';  // Functional?
 
 
 const SomeComponent = function ({ onChoose, resetKey }) {
@@ -75,7 +76,12 @@ class PreCamera extends Component {
                 </View>
             );
         } else if ( stage === 'camera' ) {
-            return (<SimpleCamera onCancel={this.onCancelCamera} onStop={this.onCancel} StyledButton={FlexButton} />);
+            return (
+                <SimpleCamera
+                    onCancel= { this.onCancelCamera }
+                    onStop  = { this.onCancel }
+                    Overlay = { CameraOverlay } />
+            );
         } else if ( stage === 'SomeComponent' || stage === 'other' ) {
             return <SomeComponent onChoose={this.onChoose} resetKey={'IncludesCameraOption'} />;
         } else {
